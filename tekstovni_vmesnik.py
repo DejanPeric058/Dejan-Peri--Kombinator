@@ -37,7 +37,7 @@ def Osnovne_kombinatoricne_funkcije():
         vnesi_multinomski()
     else:
         if izbira == 0:
-            stevilo = ustvari_stevilo(fakulteta, 1, 'Vpišii število:', '')
+            stevilo = ustvari_stevilo(fakulteta, 1, 'Vpiši število:', '')
         elif izbira == 1:
             stevilo = ustvari_stevilo(binomski, 2, 'Vpiši zgornje število:', 'Vpiši spodnje število:')
         elif izbira == 2:
