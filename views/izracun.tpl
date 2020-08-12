@@ -10,7 +10,7 @@
 
 
 
-% if podslovar['stevilo_argumentov'] == 2:
+% if podslovar['stevilo_argumentov'] == 2 and stevilo != 'Multinomski koeficient':
 <form action="/rezultat/{{stevilo}}/" method="get">
 {{podslovar['besedilo1']}}
             <input type="text" name="vrednost1">
@@ -18,7 +18,7 @@
             <input type="text" name="vrednost2">
             <input type="submit" value="Rezultat">
 
-% elif podslovar['stevilo_argumentov'] == 1:
+% elif podslovar['stevilo_argumentov'] == 1 and stevilo != 'Multinomski koeficient':
 <form action="/rezultat/{{stevilo}}/" method="get">
 {{podslovar['besedilo1']}}
             <input type="text" name="vrednost1">
@@ -35,7 +35,7 @@
          <form action="/rezultat/{{stevilo}}/" method="GET">
 %        for x in range(stevilo_argumentov):
    Vpiši {{x + 1}}. člen:
-         <input  type="text" name='vrednost{{x}}'>
+         <input  type="text" name='vrednost{{x + 1}}'>
 % end
 <input type="submit" value="Rezultat">
 %

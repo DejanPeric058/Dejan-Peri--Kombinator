@@ -6,13 +6,18 @@
     {{stevilo}}
    </h2>
 
+% slovar_funkcij[stevilo]['argumenti_nastavljeni'] = False
 % funkcija = slovar_funkcij[stevilo]['funkcija']
-% if slovar_funkcij[stevilo]['stevilo_argumentov'] == 2:
-Rezultat: {{funkcija(vrednost1, vrednost2)}}
-% else:
+% if stevilo == 'Multinomski koeficient':
+Rezultat: {{funkcija(sez)}}
+
+% elif slovar_funkcij[stevilo]['stevilo_argumentov'] == 1:
 Rezultat: {{funkcija(vrednost1)}}
+%else:
+Rezultat: {{funkcija(vrednost1, vrednost2)}}
 % end
 
+% end
 <form action="/" method="GET">
      <input  type="submit" value='Nazaj na naslovno stran' name='Nazaj na naslovno stran'>
      </form>
