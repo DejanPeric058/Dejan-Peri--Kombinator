@@ -1,5 +1,6 @@
 
 % rebase('base.tpl')
+% from slovar import slovar_funkcij
 
    <h2>
     Navodila
@@ -10,17 +11,11 @@
     </p>
     <p>
         Izberite, katero kombinatorično število bi radi izračunali:
-        <form action="/Osnovne_kombinatoricne_funkcije/" method="GET">
-        <input class="button is-success" type="submit" value='Osnovne_kombinatorične_funkcije'>
+        % for x in slovar_funkcij:
+        <form action="/{{x}}/" method="GET">
+        <input  type="submit" value='{{x}}' name={{x}}>
         </form>
-
-        <form action="/Kombinatoricna_stevilska_zaporedja/" method="GET">
-        <input class="button is-success" type="submit" value='Kombinatoricna_stevilska_zaporedja'>
-        </form>
-
-        <form action="/Dvanajstera_pot/" method="GET">
-        <input class="button is-success" type="submit" value='Dvanajstera_pot'>
-        </form>
+   % end
     </p>
 
 

@@ -2,16 +2,20 @@
 % from model import *
 % from slovar import slovar_funkcij
 
+<h2>
+    {{razdelek}}
+   </h2>
+
    <h2>
     {{stevilo}}
    </h2>
 
-% slovar_funkcij[stevilo]['argumenti_nastavljeni'] = False
-% funkcija = slovar_funkcij[stevilo]['funkcija']
+% slovar_funkcij[razdelek][stevilo]['argumenti_nastavljeni'] = False
+% funkcija = slovar_funkcij[razdelek][stevilo]['funkcija']
 % if stevilo == 'Multinomski koeficient':
 Rezultat: {{funkcija(sez)}}
 
-% elif slovar_funkcij[stevilo]['stevilo_argumentov'] == 1:
+% elif slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] == 1:
 Rezultat: {{funkcija(vrednost1)}}
 %else:
 Rezultat: {{funkcija(vrednost1, vrednost2)}}
