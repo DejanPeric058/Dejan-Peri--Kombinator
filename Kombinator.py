@@ -17,7 +17,9 @@ def Osnovne_kombinatorične_funkcije(razdelek):
 
 @bottle.get('/<razdelek>/<stevilo>/')
 def izracun(razdelek, stevilo):
-    if stevilo == 'Multinomski koeficient' and slovar_funkcij[razdelek][stevilo]['argumenti_nastavljeni']:
+    if razdelek == 'Dvanajstera pot':
+        return bottle.template('vrsta_preslikave', razlikovanje=stevilo, razdelek=razdelek)
+    elif stevilo == 'Multinomski koeficient' and slovar_funkcij[razdelek][stevilo]['argumenti_nastavljeni']:
         stevilo_argumentov = int(bottle.request.query.getunicode('stevilo_argumentov'))
         slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] = stevilo_argumentov
         return bottle.template('izracun', stevilo=stevilo, stevilo_argumentov = stevilo_argumentov, razdelek=razdelek)
@@ -31,11 +33,22 @@ def rezultat(razdelek, stevilo):
         vrednost2 = int(bottle.request.query.getunicode('vrednost2'))
         return bottle.template('rezultat', stevilo=stevilo, razdelek=razdelek, vrednost1=vrednost1, vrednost2=vrednost2)
     elif slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] == 1 and stevilo != 'Multinomski koeficient':
-        return bottle.template('rezultat', stevilo=stevilo, vrednost1=vrednost1)
+        return bottle.template('rezultat', stevilo=stevilo, razdelek=razdelek, vrednost1=vrednost1)
     else:
         sez = []
         for x in range(1, slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] + 1):
             sez.append(int(bottle.request.query.getunicode('vrednost{}'.format(x))))
         return bottle.template('rezultat', stevilo=stevilo, razdelek=razdelek, sez=sez)
+
+@bottle.get('/<razdelek>/<razlikovanje>/<vrsta>/')
+def stevilo_preslikav_izracun(razdelek, razlikovanje, vrsta):
+    return bottle.template('stevilo_preslikav', razdelek=razdelek, razlikovanje=razlikovanje, vrsta=vrsta)
+
+@bottle.get('/<razdelek>/<razlikovanje>/<vrsta>/rezultat/')
+def rezultat_preslikave(razdelek, razlikovanje, vrsta):
+    vrednost1 = int(bottle.request.query.getunicode('vrednost1'))
+    vrednost2 = int(bottle.request.query.getunicode('vrednost2'))
+    return bottle.template('rezultat_preslikave', razdelek=razdelek, razlikovanje=razlikovanje, vrsta=vrsta, vrednost1=vrednost1, vrednost2=vrednost2) 
+
 
 bottle.run(debug = True, reloader = True)

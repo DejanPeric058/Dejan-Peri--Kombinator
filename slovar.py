@@ -37,5 +37,17 @@ slovar_funkcij = {'Osnovne kombinatorične funkcije':{'Fakulteta':
                                                     'Catalanova števila': 
 
                                                     {'funkcija': catalanova,'stevilo_argumentov': 1, 'besedilo1': 'Kateri člen zaporedja Catalanovih števil iščeš?:', 'besedilo2': ''},
+                                                    },
+                                'Dvanajstera pot':  {'vrsta':       {'Vse preslikave': 1, 
+                                                                    'Injekcijo': 2,
+                                                                    'Surjekcijo': 3,
+                                                                    'Bijekcijo': 4
+                                                                    }, 
+
+                                                    'razlikovanje': {'Kroglice in škatle razlikujemo med seboj': 1, 
+                                                                    'Kroglice razlikujemo, škatel ne': 2,
+                                                                    'Škatle razlikujemo, kroglic ne': 3,
+                                                                    'Kroglic in škatel ne razlikujemo med seboj': 4
+                                                                    }
                                                     }
                                                     }
