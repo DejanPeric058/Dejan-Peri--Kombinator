@@ -28,7 +28,7 @@
         <input  type="submit" value='{{x}}' name={{x}}>
         </form>
 
-   
+
 
 
    % end

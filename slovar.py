@@ -17,7 +17,7 @@ slovar_funkcij = {'Osnovne kombinatorične funkcije':{'Fakulteta':
                                                     {'funkcija': rastoča_potenca,'stevilo_argumentov': 2, 'besedilo1': 'Vpiši osnovo:', 'besedilo2': 'Vpiši eksponent:'},
                                                     'Multinomski koeficient': 
 
-                                                    {'funkcija': multinomski,'stevilo_argumentov': 'poljubno', 'besedilo1': 'Koliko členov ima multinomski koeficient?:', 'besedilo2': '', 'argumenti_nastavljeni': False}
+                                                    {'funkcija': multinomski,'stevilo_argumentov': 'poljubno', 'besedilo1': 'Koliko členov ima multinomski koeficient?:', 'besedilo2': ''}
                                                     },           
              'Kombinatorična številska zaporedja':{'Stirlingova števila 1. vrste': 
 

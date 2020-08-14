@@ -1,6 +1,7 @@
 % rebase('base.tpl')
 % from model import *
 % from slovar import slovar_funkcij
+% import bottle
 
 <h2>
     {{razdelek}}
@@ -29,11 +30,11 @@
             <input type="submit" value="Rezultat">
 
 % else:
-%     if not slovar_funkcij[razdelek][stevilo]['argumenti_nastavljeni']:
-%        slovar_funkcij[razdelek][stevilo]['argumenti_nastavljeni'] = True
+%     if bottle.request.query.getunicode('stevilo argumentov') == None:
+
 <form action="/{{razdelek}}/{{stevilo}}/" method="get">
 {{podslovar['besedilo1']}}
-            <input type="text" name="stevilo_argumentov">
+            <input type="text" name="stevilo argumentov">
             <input type="submit" value="Naprej">
 %     else:
          <form action="/{{razdelek}}/{{stevilo}}/rezultat/" method="GET">

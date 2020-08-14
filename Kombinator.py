@@ -19,8 +19,8 @@ def Osnovne_kombinatorične_funkcije(razdelek):
 def izracun(razdelek, stevilo):
     if razdelek == 'Dvanajstera pot':
         return bottle.template('vrsta_preslikave', razlikovanje=stevilo, razdelek=razdelek)
-    elif stevilo == 'Multinomski koeficient' and slovar_funkcij[razdelek][stevilo]['argumenti_nastavljeni']:
-        stevilo_argumentov = int(bottle.request.query.getunicode('stevilo_argumentov'))
+    elif stevilo == 'Multinomski koeficient' and bottle.request.query.getunicode('stevilo argumentov') != None:
+        stevilo_argumentov = int(bottle.request.query.getunicode('stevilo argumentov'))
         slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] = stevilo_argumentov
         return bottle.template('izracun', stevilo=stevilo, stevilo_argumentov = stevilo_argumentov, razdelek=razdelek)
     else:

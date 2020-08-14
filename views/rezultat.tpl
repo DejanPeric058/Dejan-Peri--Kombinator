@@ -10,7 +10,6 @@
     {{stevilo}}
    </h2>
 
-% slovar_funkcij[razdelek][stevilo]['argumenti_nastavljeni'] = False
 % funkcija = slovar_funkcij[razdelek][stevilo]['funkcija']
 % if stevilo == 'Multinomski koeficient':
 Rezultat: {{funkcija(sez)}}
