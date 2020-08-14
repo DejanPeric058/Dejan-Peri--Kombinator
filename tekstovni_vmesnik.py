@@ -1,4 +1,4 @@
-from model import *
+from model2 import *
 
 def pozdrav():
     return input("Dobrodošli v Kombinator! Izberite, katero kombinatorično število bi radi izračunali:")

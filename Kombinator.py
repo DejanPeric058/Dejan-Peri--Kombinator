@@ -28,17 +28,10 @@ def izracun(razdelek, stevilo):
 
 @bottle.get('/<razdelek>/<stevilo>/rezultat/')
 def rezultat(razdelek, stevilo):
-    vrednost1 = int(bottle.request.query.getunicode('vrednost1'))
-    if slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] == 2 and stevilo != 'Multinomski koeficient':
-        vrednost2 = int(bottle.request.query.getunicode('vrednost2'))
-        return bottle.template('rezultat', stevilo=stevilo, razdelek=razdelek, vrednost1=vrednost1, vrednost2=vrednost2)
-    elif slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] == 1 and stevilo != 'Multinomski koeficient':
-        return bottle.template('rezultat', stevilo=stevilo, razdelek=razdelek, vrednost1=vrednost1)
-    else:
-        sez = []
-        for x in range(1, slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] + 1):
-            sez.append(int(bottle.request.query.getunicode('vrednost{}'.format(x))))
-        return bottle.template('rezultat', stevilo=stevilo, razdelek=razdelek, sez=sez)
+    sez = []
+    for x in range(1, slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] + 1):
+        sez.append(int(bottle.request.query.getunicode('vrednost{}'.format(x))))
+    return bottle.template('rezultat', stevilo=stevilo, razdelek=razdelek, sez=sez)
 
 @bottle.get('/<razdelek>/<razlikovanje>/<vrsta>/')
 def stevilo_preslikav_izracun(razdelek, razlikovanje, vrsta):
@@ -49,6 +42,11 @@ def rezultat_preslikave(razdelek, razlikovanje, vrsta):
     vrednost1 = int(bottle.request.query.getunicode('vrednost1'))
     vrednost2 = int(bottle.request.query.getunicode('vrednost2'))
     return bottle.template('rezultat_preslikave', razdelek=razdelek, razlikovanje=razlikovanje, vrsta=vrsta, vrednost1=vrednost1, vrednost2=vrednost2) 
+
+@bottle.post('/<razdelek>/<stevilo>/shrani_rezultat/')
+def shrani_rezultat(razdelek, stevilo):
+    #zbirka_stevil.zabelezi(stevilo)
+    bottle.redirect('/')
 
 
 bottle.run(debug = True, reloader = True)

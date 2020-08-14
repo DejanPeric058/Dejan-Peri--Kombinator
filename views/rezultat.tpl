@@ -11,16 +11,9 @@
    </h2>
 
 % funkcija = slovar_funkcij[razdelek][stevilo]['funkcija']
-% if stevilo == 'Multinomski koeficient':
 Rezultat: {{funkcija(sez)}}
-
-% elif slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] == 1:
-Rezultat: {{funkcija(vrednost1)}}
-%else:
-Rezultat: {{funkcija(vrednost1, vrednost2)}}
 % end
 
-% end
-<form action="/" method="GET">
+<form action="/<razdelek>/<stevilo>/shrani_rezultat/" method="POST">
      <input  type="submit" value='Nazaj na naslovno stran' name='Nazaj na naslovno stran'>
      </form>
