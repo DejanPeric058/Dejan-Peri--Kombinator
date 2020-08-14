@@ -1,17 +1,14 @@
 from datetime import datetime
 import json
-import os
 
-
-os.path.abspath(os.path.join(os.path.dirname(__file__), "Dejan-Peri--Kombinator"))
 
 class Zbirka_stevil:
     def __init__(self, ime, datoteka):
         self.ime = ime
         self.datoteka = datoteka
-
+        
     def zabelezi(self, stevilo):
-        with open(self.datoteka) as datoteka:
+        with open(self.datoteka, encoding='utf-8') as datoteka:
             slovar = json.load(datoteka)
             slovar[stevilo] += 1
         self.shrani(slovar)
@@ -20,7 +17,18 @@ class Zbirka_stevil:
         with open(self.datoteka, 'w', encoding='utf-8') as datoteka:
             json.dump(slovar, datoteka)
 
-        
+    def prikazi_najbolj_iskane(self):
+        with open(self.datoteka, encoding='utf-8') as datoteka:
+            slovar = json.load(datoteka)
+            sez = []
+            for x in range(3):
+                sez.append('{}. '.format(x + 1) + maksimalni_v_slovarju(slovar))
+                slovar.pop(maksimalni_v_slovarju(slovar))
+            return sez
+
+def maksimalni_v_slovarju(slovar):
+    sez = [(value, key) for key, value in slovar.items()]
+    return max(sez)[1]
 
 class Stevilo:
     def __init__(self, funkcija, stevilo_argumentov=2, besedilo1='Vnesi število:', besedilo2='Vnesi število blokov'):

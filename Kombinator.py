@@ -2,18 +2,15 @@ import bottle
 from model import *
 from slovar import slovar_funkcij
 
-import os
-
-bottle.TEMPLATE_PATH.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "views")))
+zbirka_stevil = Zbirka_stevil('zbirka_stevil', 'zbirka_stevil.json')
 
 @bottle.get('/')
 def osnovna_stran():
-  return bottle.template('index')
+  return bottle.template('index', zbirka_stevil=zbirka_stevil)
 
 @bottle.get('/<razdelek>/')
 def Osnovne_kombinatorične_funkcije(razdelek):
     return bottle.template('Osnovne_kombinatorične_funkcije2', razdelek = razdelek)
-
 
 @bottle.get('/<razdelek>/<stevilo>/')
 def izracun(razdelek, stevilo):
@@ -45,7 +42,7 @@ def rezultat_preslikave(razdelek, razlikovanje, vrsta):
 
 @bottle.post('/<razdelek>/<stevilo>/shrani_rezultat/')
 def shrani_rezultat(razdelek, stevilo):
-    #zbirka_stevil.zabelezi(stevilo)
+    zbirka_stevil.zabelezi(stevilo)
     bottle.redirect('/')
 
 

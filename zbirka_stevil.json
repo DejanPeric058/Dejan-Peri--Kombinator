@@ -1,16 +1,1 @@
-
-{
-"Fakulteta": 0,
-"Binomski koeficient": 0,    
-"Potenca": 0,
-"Padajoča potenca": 0,
-"Rastoča potenca": 0,
-"Multinomski koeficient": 0,
-"Stirlingova števila 1. vrste": 0,
-"Stirlingova števila 2. vrste": 0,
-"Lahova števila": 0,
-"Bellova števila": 0,
-"Catalanova števila": 0
-}
-
-    
+{"Fakulteta": 6, "Binomski koeficient": 6, "Potenca": 3, "Padajo\u010da potenca": 0, "Rasto\u010da potenca": 1, "Multinomski koeficient": 0, "Stirlingova \u0161tevila 1. vrste": 0, "Stirlingova \u0161tevila 2. vrste": 0, "Lahova \u0161tevila": 4, "Bellova \u0161tevila": 5, "Catalanova \u0161tevila": 0}

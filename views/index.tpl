@@ -1,6 +1,7 @@
 
 % rebase('base.tpl')
 % from slovar import slovar_funkcij
+% import model
 
    <h2>
     Navodila
@@ -17,5 +18,16 @@
         </form>
    % end
     </p>
+
+   <p>
+   Tri najbolj iskana kombinatorična števila:
+   </p>
+   
+   % for x in zbirka_stevil.prikazi_najbolj_iskane():
+   <p>
+   {{x}}
+   </p>
+   % end
+ 
 
 
