@@ -28,9 +28,9 @@ slovar_funkcij = {'Osnovne kombinatorične funkcije':{'Fakulteta':
                                                     'Lahova števila': 
 
                                                     {'funkcija': lahova,'stevilo_argumentov': 2, 'besedilo1': 'Vpiši število elementov:', 'besedilo2': 'Vpiši število blokov:'},
-                                                    #'Celoštevilske particije': 
+                                                    'Celoštevilske particije': 
 
-                                                    #{'funkcija': ,'stevilo_argumentov': ,'besedilo1': , 'besedilo2': },
+                                                    {'funkcija': '','stevilo_argumentov': '','besedilo1': '', 'besedilo2': ''},
                                                     'Bellova števila': 
 
                                                     {'funkcija': bellova,'stevilo_argumentov': 1, 'besedilo1': 'Kateri člen zaporedja Bellovih števil iščeš?:', 'besedilo2': ''},

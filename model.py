@@ -30,6 +30,12 @@ def maksimalni_v_slovarju(slovar):
     sez = [(value, key) for key, value in slovar.items()]
     return max(sez)[1]
 
+def slovar_v_seznam(slovar):
+    sez = []
+    for i in slovar.keys():
+        sez.append(i)
+    return sez
+
 class Stevilo:
     def __init__(self, funkcija, stevilo_argumentov=2, besedilo1='Vnesi število:', besedilo2='Vnesi število blokov'):
         self.funkcija = funkcija
@@ -170,18 +176,21 @@ def lahova(sez):
     k = sez[1]
     return binomski([n - 1, k - 1]) * fakulteta([n]) // fakulteta([k])
 
-def particijek(n, k):
+def particijek(sez):
+    n = sez[0]
+    k = sez[1]
     if n == k == 0 :
         return 1
     elif n == 0 or k == 0 or n < k:
         return 0
     else:
-        return particijek(n - k, k) + particijek(n - 1, k - 1)
+        return particijek([n - k, k]) + particijek([n - 1, k - 1])
 
-def particije(n):
+def particije(sez):
+    n = sez[0]
     particija = 0
     for i in range(1, n + 1):
-        particija += particijek(n, i)
+        particija += particijek([n, i])
     return particija
 
 def bellova(sez):
@@ -236,11 +245,11 @@ def surjekcije3(n, k):
 def preslikave4(n, k):
     preslikave = 0
     for i in range(1, k + 1):
-        preslikave += particijek(n, i)
+        preslikave += particijek([n, i])
     return preslikave
 
 def surjekcije4(n, k):
-    return particijek(n, k)
+    return particijek([n, k])
 
 def bijekcija1(n, k):
     if n == k:

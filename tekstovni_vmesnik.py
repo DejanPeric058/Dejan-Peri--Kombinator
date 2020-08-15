@@ -1,4 +1,5 @@
-from model2 import *
+from model import *
+from slovar import slovar_funkcij
 
 def pozdrav():
     return input("Dobrodošli v Kombinator! Izberite, katero kombinatorično število bi radi izračunali:")
@@ -11,70 +12,17 @@ def izberi(mozni_odgovori):
 
 def osnovni_meni():
     print('Kaj bi rad izračunal?')
-    izbira = izberi(['Osnovne kombinatorične funkcije', 
-        'Kombinatorična številska zaporedja',
-        'Dvanajstera pot',
-    ])
-    if izbira == 0:
-        Osnovne_kombinatoricne_funkcije()
-    elif izbira == 1:
-        Kombinatoricna_stevilska_zaporedja()
-    elif izbira == 2:
-        Dvanajstera_pot()
-    else:
-        assert False
+    sez = slovar_v_seznam(slovar_funkcij)
+    izbira = izberi(sez)
+    stevilo = sez[izbira]
+    Razdelek(razdelek)
 
-def Osnovne_kombinatoricne_funkcije():
+def Razdelek(razdelek):
     print('Kaj bi rad izračunal?')
-    izbira = izberi(['Fakulteta', 
-        'Binomski koeficient',
-        'Potenca',
-        'Padajoča potenca',
-        'Rastoča potenca',
-        'Multinomski koeficient',
-    ])
-    if izbira == 5:
-        vnesi_multinomski()
-    else:
-        if izbira == 0:
-            stevilo = ustvari_stevilo(fakulteta, 1, 'Vpiši število:', '')
-        elif izbira == 1:
-            stevilo = ustvari_stevilo(binomski, 2, 'Vpiši zgornje število:', 'Vpiši spodnje število:')
-        elif izbira == 2:
-            stevilo = ustvari_stevilo(potenca, 2, 'Vpiši osnovo:', 'Vpiši eksponent:')  
-        elif izbira == 3:
-            stevilo = ustvari_stevilo(padajoča_potenca, 2, 'Vpiši osnovo:', 'Vpiši eksponent:')
-        elif izbira == 4:
-            stevilo = ustvari_stevilo(rastoča_potenca, 2, 'Vpiši osnovo:', 'Vpiši eksponent:')
-        else:
-            assert False
-        vnesi_cifre(stevilo)
-
-def Kombinatoricna_stevilska_zaporedja():
-    print('Kaj bi rad izračunal?')
-    izbira = izberi(['Stirlingova števila 1. vrste', 
-        'Stirlingova števila 2. vrste',
-        'Lahova števila',
-        'Celoštevilske particije',
-        'Bellova števila',
-        'Catalanova števila',
-    ])
-    if izbira == 3:
-        Celoštevilske_particije()
-    else:    
-        if izbira == 0:
-            stevilo = ustvari_stevilo(stirling1, 2, 'Vpiši število elementov:', 'Vpiši število blokov:')
-        elif izbira == 1:
-            stevilo = ustvari_stevilo(stirling2, 2, 'Vpiši število elementov:', 'Vpiši število blokov:')
-        elif izbira == 2:
-            stevilo = ustvari_stevilo(lahova, 2, 'Vpiši število elementov:', 'Vpiši število blokov:')
-        elif izbira == 4:
-            stevilo = ustvari_stevilo(bellova, 1, 'Kateri člen zaporedja Bellovih števil iščeš?:', '')
-        elif izbira == 5:
-            stevilo = ustvari_stevilo(catalanova, 1, 'Kateri člen zaporedja Catalanovih števil iščeš?:', '')
-        else:
-            assert False
-        vnesi_cifre(stevilo)
+    sez = slovar_v_seznam(slovar_funkcij[razdelek])
+    izbira = izberi(sez)
+    stevilo = sez[izbira]
+    vnesi_cifre(razdelek, stevilo)
 
 def Celoštevilske_particije():
     print('Katera vrsta celoštevilskih particij te zanima?')
@@ -132,14 +80,15 @@ def preberi():
     return input('> ')
 
 def vnesi_cifre(stevilo):
+    sez = []
     print (stevilo.besedilo1)
-    vrednost1 = int(preberi())
+    sez.append(int(preberi()))
     if stevilo.stevilo_argumentov == 1:
-        return print('Rezultat: {}'.format(stevilo.funkcija(vrednost1)))
+        return print('Rezultat: {}'.format(stevilo.funkcija(sez)))
     else:
         print (stevilo.besedilo2)
-        vrednost2 = int(preberi())
-        return print('Rezultat: {}'.format(stevilo.funkcija(vrednost1, vrednost2)))
+        sez.append(int(preberi()))
+        return print('Rezultat: {}'.format(stevilo.funkcija(sez)))
 
 def vnesi_multinomski():
     print ('Koliko členov ima multinomski koeficient?:')
