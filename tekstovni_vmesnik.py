@@ -4,18 +4,20 @@ from slovar import slovar_funkcij
 zbirka_stevil = Zbirka_stevil('zbirka_stevil', 'zbirka_stevil.json')
 
 def pozdrav():
-    print('Dobrodošli v Kombinator! Najbolj iskana kombinatorična števila:')
-    for x in zbirka_stevil.prikazi_najbolj_iskane():
-        print('{}'.format(x))
-    return input('Izberite, katero kombinatorično število bi radi izračunali:')
+    print('Dobrodošli v Kombinator!')
+    return input('')
 
 def izberi(mozni_odgovori):
     for indeks, odgovor in enumerate(mozni_odgovori):
         print('{}) {}'.format(indeks + 1, odgovor))
-    izbira = input('> ')
+    izbira = preberi()
     return int(izbira) - 1
 
 def osnovni_meni():
+    print('Najbolj iskana kombinatorična števila:')
+    for x in zbirka_stevil.prikazi_najbolj_iskane():
+        print('{}'.format(x))
+    print('')
     print('Kaj bi rad izračunal?')
     sez = slovar_v_seznam(slovar_funkcij)
     izbira = izberi(sez)

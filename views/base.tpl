@@ -25,11 +25,12 @@
     font-family: verdana;
     margin-left: 10px
   }
-  form {
+  li {
     margin-left: 10px;
+    font-family: verdana;
   }
   input[type=text], select {
-    width: 7%;
+    width: 15%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;

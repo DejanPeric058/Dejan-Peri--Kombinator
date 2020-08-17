@@ -4,9 +4,9 @@
 
    <h1 align='center'>Kombinator</h1>
 
-   <p>
+   <h2>
       Dobrodošli v Kombinator! 
-   </p>
+   </h2>
    <p>
       Izberite, katero kombinatorično število bi radi izračunali:
 
@@ -21,9 +21,9 @@
    
    % for x in zbirka_stevil.prikazi_najbolj_iskane():
 
-   <p>
-      {{x}}
-   </p>
+   <ul>
+      <li> {{x}} </li>
+   </ul>
 
    % end
  
