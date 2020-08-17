@@ -28,10 +28,10 @@ slovar_funkcij = {'Osnovne kombinatorične funkcije':{'Fakulteta':
                                                     'Lahova števila': 
 
                                                     {'funkcija': lahova, 'stevilo_argumentov': 2, 'besedilo1': 'Vpiši število elementov:', 'besedilo2': 'Vpiši število blokov:'},
-                                                    'Celoštevilska particija naravnega števila na k členov': 
+                                                    'Celoštevilska particija na k členov': 
 
                                                     {'funkcija': particijek, 'stevilo_argumentov': 2, 'besedilo1': 'Vpiši naravno število:', 'besedilo2': 'Vpiši število členov razčlenitve:'},
-                                                    'Celoštevilske particije naravnega števila': 
+                                                    'Celoštevilska particija': 
 
                                                     {'funkcija': particije, 'stevilo_argumentov': 1, 'besedilo1': 'Vpiši naravno število:', 'besedilo2': ''},
                                                     'Bellova števila': 

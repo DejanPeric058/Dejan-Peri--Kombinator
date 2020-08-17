@@ -10,12 +10,13 @@ def osnovna_stran():
 
 @bottle.get('/<razdelek>/')
 def Osnovne_kombinatorične_funkcije(razdelek):
-    return bottle.template('Osnovne_kombinatorične_funkcije2', razdelek = razdelek)
+    return bottle.template('razdelek', razdelek = razdelek)
 
 @bottle.get('/<razdelek>/<stevilo>/')
 def izracun(razdelek, stevilo):
     if razdelek == 'Dvanajstera pot':
         return bottle.template('vrsta_preslikave', razlikovanje=stevilo, razdelek=razdelek)
+    # če število argumentov pri multinomskem koeficientu še ni nastavljeno:
     elif stevilo == 'Multinomski koeficient' and bottle.request.query.getunicode('stevilo argumentov') != None:
         stevilo_argumentov = int(bottle.request.query.getunicode('stevilo argumentov'))
         slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] = stevilo_argumentov
@@ -25,6 +26,7 @@ def izracun(razdelek, stevilo):
 
 @bottle.get('/<razdelek>/<stevilo>/rezultat/')
 def rezultat(razdelek, stevilo):
+    # vrne končni rezultat
     sez = []
     for x in range(1, slovar_funkcij[razdelek][stevilo]['stevilo_argumentov'] + 1):
         sez.append(int(bottle.request.query.getunicode('vrednost{}'.format(x))))
@@ -42,6 +44,7 @@ def rezultat_preslikave(razdelek, razlikovanje, vrsta):
 
 @bottle.post('/<stevilo>/shrani_rezultat/')
 def shrani_rezultat(stevilo):
+    # pri posameznem številu doda +1 v json datoteko
     zbirka_stevil.zabelezi(stevilo)
     bottle.redirect('/')
 

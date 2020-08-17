@@ -1,7 +1,7 @@
-from datetime import datetime
 import json
 
-
+# Poleg modela je še slovar.py, ki je uporabljen v obeh vmesnikih.
+# razred za beleženje in prikazovanje števila iskanj posameznih kombinatoričnih števil
 class Zbirka_stevil:
     def __init__(self, ime, datoteka):
         self.ime = ime
@@ -21,21 +21,24 @@ class Zbirka_stevil:
         with open(self.datoteka, encoding='utf-8') as datoteka:
             slovar = json.load(datoteka)
             sez = []
-            for x in range(3):
+            for x in range(5):
                 sez.append('{}. '.format(x + 1) + maksimalni_v_slovarju(slovar))
                 slovar.pop(maksimalni_v_slovarju(slovar))
             return sez
 
+# funkcija, ki vrne tisti ključ iz slovarja, ki ima najvišjo vrednost
 def maksimalni_v_slovarju(slovar):
     sez = [(value, key) for key, value in slovar.items()]
     return max(sez)[1]
 
+# funkcija, ki spremeni dict.keys() v navaden seznam
 def slovar_v_seznam(slovar):
     sez = []
     for i in slovar.keys():
         sez.append(i)
     return sez
 
+# razred za računanje dvanajstere poti
 class Preslikava:
     def __init__(self, vrsta=1, razlikovanje=1):
         self.vrsta = vrsta
@@ -89,6 +92,8 @@ class Preslikava:
 def ustvari_preslikavo():
     return Preslikava()
 
+# Vse kombinatorične funkcije. Za lažje delo v vmesniku so vse definirane tako,
+# da sprejmejo seznam z argumenti.
 def fakulteta(sez):
     n = sez[0]
     produkt = 1
@@ -196,6 +201,8 @@ def catalanova(sez):
     n = sez[0]
     return binomski([2 * n, n]) // (n + 1)
 
+# Funkcije za dvanajstero pot. Številke 1-4 povejo, ali se elemente v domeni(kroglice) in v kodomeni(škatle) razlikuje med seboj ali ne.
+# Zraven je dodana tudi bijekcija. 
 def preslikave1(n, k):
     return k ** n
 

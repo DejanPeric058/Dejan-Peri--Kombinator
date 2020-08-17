@@ -2,18 +2,18 @@
 % from model import *
 % from slovar import slovar_funkcij
 
-<h2>
-    {{razdelek}}
-   </h2>
+    <h1 align='center'>{{razdelek}}</h1>
 
-   <h2>
-    {{stevilo}}
-   </h2>
+    <h2>{{stevilo}}</h2>
 
-% funkcija = slovar_funkcij[razdelek][stevilo]['funkcija']
-Rezultat: {{funkcija(sez)}}
-% end
+    % funkcija = slovar_funkcij[razdelek][stevilo]['funkcija']
 
-<form action="/{{stevilo}}/shrani_rezultat/" method="POST">
-     <input  type="submit" value='Nazaj na naslovno stran' name='Nazaj na naslovno stran'>
-     </form>
+    <p>
+        Rezultat: {{funkcija(sez)}}
+    </p>
+
+    % end
+
+    <form action="/{{stevilo}}/shrani_rezultat/" method="POST">
+        <input type="submit" value='Nazaj na naslovno stran' name='Nazaj na naslovno stran'>
+        </form>

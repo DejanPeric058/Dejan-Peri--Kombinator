@@ -4,7 +4,7 @@ from slovar import slovar_funkcij
 zbirka_stevil = Zbirka_stevil('zbirka_stevil', 'zbirka_stevil.json')
 
 def pozdrav():
-    print('Dobrodošli v Kombinator! Tri najbolj iskana kombinatorična števila:')
+    print('Dobrodošli v Kombinator! Najbolj iskana kombinatorična števila:')
     for x in zbirka_stevil.prikazi_najbolj_iskane():
         print('{}'.format(x))
     return input('Izberite, katero kombinatorično število bi radi izračunali:')
@@ -65,7 +65,7 @@ def izracun(razdelek, stevilo):
         sez.append(int(preberi()))
         return print('Rezultat: {}'.format(podslovar['funkcija'](sez)))
     else:
-        return izračun_multinomski(sez)
+        return izracun_multinomski(sez)
     
 def izracun_multinomski(sez):
     stevilo = sez[0]

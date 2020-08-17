@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -46,17 +47,11 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
 </style>
-
-<h1 align="center">Kombinator</h1>
 
 <body>
 
     {{!base}}
-
 
 </body>
 
