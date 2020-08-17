@@ -7,6 +7,12 @@
    <h2>{{stevilo}}</h2>
 
    % podslovar = slovar_funkcij[razdelek][stevilo]
+   % informacije = podslovar['informacije']
+
+   <p>
+      {{informacije}}
+   </p>
+   
    % if podslovar['stevilo_argumentov'] == 2 and stevilo != 'Multinomski koeficient':
 
    <form action="/{{razdelek}}/{{stevilo}}/rezultat/" method="get">

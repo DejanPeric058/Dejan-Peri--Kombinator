@@ -4,7 +4,11 @@
    <h1 align='center'>{{razdelek}}</h2>
 
    % if razdelek == 'Dvanajstera pot':
-   
+
+   <p>
+      Elementi v domeni so kroglice, elementi v kodomeni pa škatle.
+   </p>
+
    <p>
       Ali kroglice in škatle razlikujemo med seboj ali ne?
    </p>
