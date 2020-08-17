@@ -25,6 +25,6 @@ Rezultat: {{rezultat}}
 
 
 
-   <form action="/" method="GET">
+   <form action="/{{razdelek}}/shrani_rezultat/" method="POST">
      <input  type="submit" value='Nazaj na naslovno stran' name='Nazaj na naslovno stran'>
      </form>

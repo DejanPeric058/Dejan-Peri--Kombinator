@@ -36,17 +36,6 @@ def slovar_v_seznam(slovar):
         sez.append(i)
     return sez
 
-class Stevilo:
-    def __init__(self, funkcija, stevilo_argumentov=2, besedilo1='Vnesi število:', besedilo2='Vnesi število blokov'):
-        self.funkcija = funkcija
-        self.stevilo_argumentov = stevilo_argumentov
-        self.besedilo1 = besedilo1
-        self.besedilo2 = besedilo2
-
-    def spremeni_besedilo2(self, besedilo2):
-        self.besedilo2 = besedilo2
-        return
-
 class Preslikava:
     def __init__(self, vrsta=1, razlikovanje=1):
         self.vrsta = vrsta
@@ -96,9 +85,6 @@ class Preslikava:
     def doloci_razlikovanje(self, razlikovanje):
         self.razlikovanje = razlikovanje
         return
-
-def ustvari_stevilo(funkcija, n, besedilo1, besedilo2):
-    return Stevilo(funkcija, n, besedilo1, besedilo2)
 
 def ustvari_preslikavo():
     return Preslikava()

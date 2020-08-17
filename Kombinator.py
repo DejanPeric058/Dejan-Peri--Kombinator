@@ -40,8 +40,8 @@ def rezultat_preslikave(razdelek, razlikovanje, vrsta):
     vrednost2 = int(bottle.request.query.getunicode('vrednost2'))
     return bottle.template('rezultat_preslikave', razdelek=razdelek, razlikovanje=razlikovanje, vrsta=vrsta, vrednost1=vrednost1, vrednost2=vrednost2) 
 
-@bottle.post('/<razdelek>/<stevilo>/shrani_rezultat/')
-def shrani_rezultat(razdelek, stevilo):
+@bottle.post('/<stevilo>/shrani_rezultat/')
+def shrani_rezultat(stevilo):
     zbirka_stevil.zabelezi(stevilo)
     bottle.redirect('/')
 

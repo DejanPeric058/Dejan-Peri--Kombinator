@@ -14,6 +14,6 @@
 Rezultat: {{funkcija(sez)}}
 % end
 
-<form action="/{{razdelek}}/{{stevilo}}/shrani_rezultat/" method="POST">
+<form action="/{{stevilo}}/shrani_rezultat/" method="POST">
      <input  type="submit" value='Nazaj na naslovno stran' name='Nazaj na naslovno stran'>
      </form>

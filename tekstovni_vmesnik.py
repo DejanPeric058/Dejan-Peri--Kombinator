@@ -1,8 +1,13 @@
 from model import *
 from slovar import slovar_funkcij
 
+zbirka_stevil = Zbirka_stevil('zbirka_stevil', 'zbirka_stevil.json')
+
 def pozdrav():
-    return input("Dobrodošli v Kombinator! Izberite, katero kombinatorično število bi radi izračunali:")
+    print('Dobrodošli v Kombinator! Tri najbolj iskana kombinatorična števila:')
+    for x in zbirka_stevil.prikazi_najbolj_iskane():
+        print('{}'.format(x))
+    return input('Izberite, katero kombinatorično število bi radi izračunali:')
 
 def izberi(mozni_odgovori):
     for indeks, odgovor in enumerate(mozni_odgovori):
@@ -14,92 +19,63 @@ def osnovni_meni():
     print('Kaj bi rad izračunal?')
     sez = slovar_v_seznam(slovar_funkcij)
     izbira = izberi(sez)
-    stevilo = sez[izbira]
-    Razdelek(razdelek)
+    razdelek = sez[izbira]
+    if razdelek == 'Dvanajstera pot':
+        Dvanajstera_pot()
+    else:
+        Razdelek(razdelek)
 
 def Razdelek(razdelek):
     print('Kaj bi rad izračunal?')
     sez = slovar_v_seznam(slovar_funkcij[razdelek])
     izbira = izberi(sez)
     stevilo = sez[izbira]
-    vnesi_cifre(razdelek, stevilo)
-
-def Celoštevilske_particije():
-    print('Katera vrsta celoštevilskih particij te zanima?')
-    izbira = izberi(['Particije celega števila na določeno število sumandov', 
-        'Vse particije celega števila',
-    ])
-    if izbira == 0:
-        stevilo = ustvari_stevilo(particijek, 2, 'Vpiši naravno število:', 'Vpiši število členov razčlenitve:')
-    elif izbira == 1:
-        stevilo = ustvari_stevilo(particije, 1, 'Vpiši naravno število:', '')
-    else:
-        assert False
-    vnesi_cifre(stevilo)
+    izracun(razdelek, stevilo)
 
 def Dvanajstera_pot():
-    preslikava = ustvari_preslikavo()
     print('Kakšno vrsto preslikave imaš?')
-    izbira = izberi(['Vse preslikave', 
-        'Injekcijo',
-        'Surjekcijo',
-        'Bijekcijo',
-    ])
-    if izbira == 0:
-        preslikava.doloci_vrsto(1)
-    elif izbira == 1:
-        preslikava.doloci_vrsto(2)
-    elif izbira == 2:
-        preslikava.doloci_vrsto(3)
-    elif izbira == 3:
-        preslikava.doloci_vrsto(4)
-    else:
-        assert False
+    preslikava = ustvari_preslikavo()
+    sez = slovar_v_seznam(slovar_funkcij['Dvanajstera pot']['vrsta'])
+    izbira = izberi(sez)
+    vrsta = slovar_funkcij['Dvanajstera pot']['vrsta'][sez[izbira]]
+    preslikava.doloci_vrsto(vrsta)
     Razlikujemo(preslikava)
 
 def Razlikujemo(preslikava):
     print('Ali kroglice in škatle razlikujemo med seboj ali ne?')
-    izbira = izberi(['Kroglice in škatle razlikujemo med seboj', 
-        'Kroglice razlikujemo, škatel ne',
-        'Škatle razlikujemo, kroglic ne',
-        'Kroglic in škatel ne razlikujemo med seboj'
-    ])
-    if izbira == 0:
-        preslikava.doloci_razlikovanje(1)
-    elif izbira == 1:
-        preslikava.doloci_razlikovanje(2)
-    elif izbira == 2:
-        preslikava.doloci_razlikovanje(3)
-    elif izbira == 3:
-        preslikava.doloci_razlikovanje(4)
-    else:
-        assert False
-    Vnesi_število(preslikava)
+    sez = slovar_v_seznam(slovar_funkcij['Dvanajstera pot']['razlikovanje'])
+    izbira = izberi(sez)
+    razlikovanje = slovar_funkcij['Dvanajstera pot']['razlikovanje'][sez[izbira]]
+    preslikava.doloci_razlikovanje(razlikovanje)
+    izracun_preslikave(preslikava)
 
 def preberi():
     return input('> ')
 
-def vnesi_cifre(stevilo):
+def izracun(razdelek, stevilo):
+    zbirka_stevil.zabelezi(stevilo)
     sez = []
-    print (stevilo.besedilo1)
+    podslovar = slovar_funkcij[razdelek][stevilo]
+    print (podslovar['besedilo1'])
     sez.append(int(preberi()))
-    if stevilo.stevilo_argumentov == 1:
-        return print('Rezultat: {}'.format(stevilo.funkcija(sez)))
-    else:
-        print (stevilo.besedilo2)
+    if podslovar['stevilo_argumentov'] == 1:
+        return print('Rezultat: {}'.format(podslovar['funkcija'](sez)))
+    elif podslovar['stevilo_argumentov'] == 2:
+        print (podslovar['besedilo2'])
         sez.append(int(preberi()))
-        return print('Rezultat: {}'.format(stevilo.funkcija(sez)))
-
-def vnesi_multinomski():
-    print ('Koliko členov ima multinomski koeficient?:')
-    stevilo = int(preberi())
+        return print('Rezultat: {}'.format(podslovar['funkcija'](sez)))
+    else:
+        return izračun_multinomski(sez)
+    
+def izracun_multinomski(sez):
+    stevilo = sez[0]
     sez = []
     for x in range(stevilo):
         print ('Vpiši {}. člen'.format(x + 1))
         sez.append(int(preberi()))
     return print('Rezultat: {}'.format(multinomski(sez)))
 
-def Vnesi_število(preslikava):
+def izracun_preslikave(preslikava):
     print ('Vpiši število kroglic:')
     vrednost1 = int(preberi())
     print ('Vpiši število škatel:')
